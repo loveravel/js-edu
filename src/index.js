@@ -1,3 +1,8 @@
+const Hours = {
+  BASIC: 500,
+  ADVANSED: 800,
+}
+
 /**
  * @param preferences - target student focus
  * @param knowsProgramming - if student can do programming and know basics
@@ -9,6 +14,6 @@ module.exports = function getTimeForEducation(
     knowsProgramming = true,
     config = {family: 4}
     ) {
-      return 0;
+      return Math.ceil((knowsProgramming ? Hours.ADVANSED : Hours.BASIC + Hours.ADVANSED) / config[focus]);
   };
   
